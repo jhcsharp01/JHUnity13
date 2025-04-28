@@ -50,8 +50,6 @@ public class PoolManager : MonoBehaviour
     public Dictionary<string, IPool> pool_dict = new Dictionary<string, IPool>();
     
     //Transform b_obj;
-  
-    
 
     public IPool pooling(string path)
     {
