@@ -54,7 +54,10 @@ public class PoolManager : MonoBehaviour
     public IPool pooling(string path)
     {
         //ContainsKey(Key) 해당 키가 딕셔너리에 있는지를 판단하는 문법
-        if(pool_dict.ContainsKey(path) == false) Add_pool(path);
+        if (pool_dict.ContainsKey(path) == false)
+        {
+            Add_pool(path);
+        }
             //Add_pool이 public이 아닌 private로 짜인 이유
             //pooling을 통해 Add_pool 기능 사용 가능
 

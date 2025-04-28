@@ -14,7 +14,7 @@ public class Spawner : MonoBehaviour
     //2. 물약, 스킬 쿨타임
     public int count;          //생성될 몬스터의 개수
     public float spawnTime;    //생성 주기(젠 타임, 스폰 타임...)
-    public GameObject monster_prefab; //몬스터 프리팹
+    //public GameObject monster_prefab; //몬스터 프리팹
 
     //public static List<Monster> monster_list = new List<Monster>();
     //public static List<Player> player_list = new List<Player>();
@@ -57,7 +57,7 @@ public class Spawner : MonoBehaviour
             //기존 형태를 그대로 생성하는 경우에 사용하는 값
 
             //반납
-           // StartCoroutine(CRelease(go));
+           StartCoroutine(CRelease(go));
         }
 
         //yield return : 일정 시점 후 다시 돌아오는 코드
@@ -69,7 +69,7 @@ public class Spawner : MonoBehaviour
     IEnumerator CRelease(GameObject obj)
     {
         //1초 대기
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(5.0f);
 
         Manager.Pool.pool_dict["Monster"].Release(obj);
     }

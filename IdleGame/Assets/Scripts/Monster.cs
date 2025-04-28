@@ -12,10 +12,6 @@ public class Monster : Unit
 {
     //유니티 인스펙터에 해당 필드 값에 대한 범위 설정
     [Range(1,5)] public float speed;
-    
-
-
-
     //몬스터 클래스에서 상황에 맞게 애니메이션을 실행시키려 합니다.
     //이때 필요한 데이터는 무엇일까요? 2
     //1. Animation

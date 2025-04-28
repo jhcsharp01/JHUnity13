@@ -454,7 +454,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &437108322
 Transform:
   m_ObjectHideFlags: 0
@@ -484,7 +484,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   count: 10
   spawnTime: 2
-  monster_prefab: {fileID: 1881658891898107651, guid: 121fc63f49a6ee24c8f60529941f3552, type: 3}
 --- !u!1 &689048755
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,7 +839,7 @@ GameObject:
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1079438327
 Transform:
   m_ObjectHideFlags: 0

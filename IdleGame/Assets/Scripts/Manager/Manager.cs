@@ -41,10 +41,8 @@ public class Manager : MonoBehaviour
     //매니저 접근을 위한 프로퍼티
     public static PoolManager Pool { get  { return PoolManager; } }
 
-
-
-
-    public GameObject ResourceInstantiate(string path) => Resources.Load<GameObject>(path);
+    //하...
+    public GameObject ResourceInstantiate(string path) => Instantiate(Resources.Load<GameObject>(path));
 
 }
 
