@@ -8,11 +8,11 @@ using UnityEngine;
 
 //MonoBehavior 상속
 //1. 유니티 오브젝트에 해당 클래스를 컴포넌트로써 등록할 수 있습니다.
-public class Monster : MonoBehaviour
+public class Monster : Unit
 {
     //유니티 인스펙터에 해당 필드 값에 대한 범위 설정
     [Range(1,5)] public float speed;
-    Animator animator;
+    
 
     //몬스터 클래스에서 상황에 맞게 애니메이션을 실행시키려 합니다.
     //이때 필요한 데이터는 무엇일까요? 2
@@ -49,14 +49,16 @@ public class Monster : MonoBehaviour
         isSpawn = true;
     }
 
-    private void Start()
+    protected override void Start()
     {
-        animator = GetComponent<Animator>();
-        //코드 내에서 Animator로 인식하고, Animator의 필드나 메소드를
-        //사용할 수 있습니다.
-        StartCoroutine(OnSpawn());
-
+        base.Start(); //Unit의 Start 호출
+        //Monster가 실행할 Start 작업 구현
+        MonsterInit();
     }
+
+    public void MonsterInit() => StartCoroutine(OnSpawn());
+
+
     //유니티 라이프 싸이클 함수
     private void Update()
     {  
@@ -102,16 +104,7 @@ public class Monster : MonoBehaviour
         #endregion
     }
 
-    private void SetAnimator(string temp)
-    {
-        //기본 파라미터에 대한 reset
-        //유니티 Animator에 만들어둔 parameter의 이름을 정확하게 기재합니다.
-        animator.SetBool("isIDLE", false);
-        animator.SetBool("isMOVE", false);
-        
-        //인자로 전달받은 값을 true로 설정합니다.
-        animator.SetBool(temp, true);
-    }
+   
 
 
 }

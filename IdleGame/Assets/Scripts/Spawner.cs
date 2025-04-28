@@ -1,5 +1,5 @@
 using System.Collections;
-using Unity.VisualScripting;
+using System.Collections.Generic; //List<T> 사용을 위한 추가
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -12,11 +12,13 @@ public class Spawner : MonoBehaviour
     //코루틴이 자주 사용되는 경우
     //1. 몬스터 생성
     //2. 물약, 스킬 쿨타임
-
     public int count;          //생성될 몬스터의 개수
     public float spawnTime;    //생성 주기(젠 타임, 스폰 타임...)
-    public GameObject monster_prefab; //몬스터 프리팹
+    //public GameObject monster_prefab; //몬스터 프리팹
 
+    public static List<Monster> monster_list = new List<Monster>();
+    public static List<Player> player_list = new List<Player>();
+    //방치형 게임에서 캐릭터를 여러 개 사용하는 경우가 존재하기 때문
 
     private void Start()
     {
@@ -42,7 +44,15 @@ public class Spawner : MonoBehaviour
                 pos = Vector3.zero + Random.insideUnitSphere * 10.0f;
                 pos.y = 0.0f;
             }
-            Instantiate(monster_prefab,pos,Quaternion.identity);
+            //Instantiate(monster_prefab,pos,Quaternion.identity);
+
+            //Action 대리자를 활용해 몬스터 풀링
+            var go = Manager.Pool.pooling("Monster").get((value) =>
+            {
+                value.GetComponent<Monster>().MonsterInit();
+            });
+
+
             //Quaternion.identity : 회전 값 0
             //기존 형태를 그대로 생성하는 경우에 사용하는 값
         }
