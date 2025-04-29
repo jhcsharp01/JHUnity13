@@ -26,6 +26,15 @@ public class Unit : MonoBehaviour
     }
     protected void SetAnimator(string temp)
     {
+        //[공격]
+        if (temp == "isATTACK")
+        {
+            animator.SetTrigger("isATTACK");
+            //트리거를 작동시키면 바로 실행
+            return;
+        }
+
+        //[이동과 대기]
         //기본 파라미터에 대한 reset
         //유니티 Animator에 만들어둔 parameter의 이름을 정확하게 기재합니다.
         animator.SetBool("isIDLE", false);
@@ -36,7 +45,7 @@ public class Unit : MonoBehaviour
     }
 
     //우선 타격
-     protected void StrikeFirst(Transform[] targets)
+     protected void StrikeFirst<T>(T[] targets) where T : Component
      {
         var enemys = targets;
         Transform closet = null;
@@ -58,6 +67,7 @@ public class Unit : MonoBehaviour
         }
         //가장 가까운 값을 타겟으로 등록
         target = closet;
+
         if(target != null)
         {
             transform.LookAt(target.position);
