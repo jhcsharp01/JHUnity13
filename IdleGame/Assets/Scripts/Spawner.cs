@@ -52,7 +52,8 @@ public class Spawner : MonoBehaviour
                 value.GetComponent<Monster>().MonsterInit();
                 value.transform.position = pos;
                 value.transform.LookAt(Vector3.zero);
-                var go = value.GetComponent<Monster>();
+                monster_list.Add(value.GetComponent<Monster>());
+                //var go = value.GetComponent<Monster>();
                 //monster_list.Add(go);
             });
             //Quaternion.identity : È¸Àü °ª 0

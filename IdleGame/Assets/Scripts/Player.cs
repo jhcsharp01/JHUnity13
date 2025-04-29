@@ -15,15 +15,12 @@ public class Player : Unit
     //메인 로직을 짜는 위치(Update)
     private void Update()
     {
-
+        //리스트 -> 배열
+        //타겟이 없다?
+        StrikeFirst(Spawner.monster_list.ToArray());
 
         if (target == null)
-        {
-
-            StrikeFirst(Spawner.monster_list.ToArray());
-            //리스트 -> 배열
-            //타겟이 없다?
-
+        { 
             //거리 계산
             var targetPos = Vector3.Distance(transform.position, pos);
 
