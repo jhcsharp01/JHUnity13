@@ -6,9 +6,9 @@
 
 
 ## 20250429
-```cs
+
 1. 에셋 스토어에서 아이템으로 쓸만한 에셋 추가(UI)
-[에셋](https://assetstore.unity.com/packages/2d/gui/icons/rpg-icons-free-starter-pack-245521)
+[에셋 링크](https://assetstore.unity.com/packages/2d/gui/icons/rpg-icons-free-starter-pack-245521)
 2. Scripts -> UI -> B_Canvas.cs
 
 3. Canvas에 연결해줍니다.
@@ -88,4 +88,3 @@ Player.cs 수정
 
 20. 스크립터블 오브젝트 생성
 
-```
