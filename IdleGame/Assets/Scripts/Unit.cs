@@ -15,6 +15,8 @@ public class Unit : MonoBehaviour
     public float A_RANGE; //사거리
     public float T_RANGE; //추격 범위
 
+    [Header("타겟 위치")]
+    public Transform target;
 
     protected virtual void Start()
     {
@@ -32,4 +34,33 @@ public class Unit : MonoBehaviour
         //인자로 전달받은 값을 true로 설정합니다.
         animator.SetBool(temp, true);
     }
+
+    //우선 타격
+     protected void StrikeFirst(Transform[] targets)
+     {
+        var enemys = targets;
+        Transform closet = null;
+        var max = T_RANGE;
+
+        for (int i = 0; i < enemys.Length; i++)
+        {
+            var target_distance = Vector3.Distance(
+                transform.position, enemys[i].transform.position);
+
+            //최대보다 거리 작다면
+            if(target_distance < max)
+            {
+                //현재의 그 몬스터의 위치가 가장 가까운 거리
+                closet = enemys[i].transform;
+                //최대 거리 == 타겟의 거리
+                max = target_distance;
+            }
+        }
+        //가장 가까운 값을 타겟으로 등록
+        target = closet;
+        if(target != null)
+        {
+            transform.LookAt(target.position);
+        }
+     }
 }

@@ -8,7 +8,7 @@ public class CoinMove : MonoBehaviour
     RectTransform[] rects = new RectTransform[5];
     public float distance; //거리
     public float speed; //코인 이동 속도
-
+    public float item_move_speed; //아이템이 빨려가는 속도
 
     private void Awake()
     {
@@ -57,7 +57,7 @@ public class CoinMove : MonoBehaviour
             {
                 var rect = rects[i];
 
-                rect.anchoredPosition = Vector2.MoveTowards(rect.anchoredPosition, pos[i], speed);
+                rect.anchoredPosition = Vector2.MoveTowards(rect.anchoredPosition, pos[i], speed * Time.deltaTime);
 
                 //거리에 대한 로직을 설계해서 탈출하는 코드
 
@@ -82,7 +82,7 @@ public class CoinMove : MonoBehaviour
                 var rect = rects[i];
 
                 rect.position = Vector2.MoveTowards(rect.position,
-                    B_Canvas.instance.Coin.position, speed);
+                    B_Canvas.instance.Coin.position, speed * item_move_speed *  Time.deltaTime);
             }
 
             if(CheckDistanceCoinUI(0.5f))
@@ -90,12 +90,23 @@ public class CoinMove : MonoBehaviour
                 Manager.Pool.pool_dict["Coin_Move"].Release(gameObject);
                 break;
             }
+            yield return null;
         }
+        //======== 아이템(코인)이 UI 코인 쪽으로 이동하는 효과 ================
     }
 
-    private bool CheckDistanceCoinUI(float v)
+    private bool CheckDistanceCoinUI(float range)
     {
-        throw new System.NotImplementedException();
+        for (int i = 0; i < rects.Length; i++)
+        {
+            var distance = Vector2.Distance(rects[i].anchoredPosition,
+                B_Canvas.instance.Coin.position);
+            if (distance > range)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     private bool CheckDistance(Vector2[] end, float range)
