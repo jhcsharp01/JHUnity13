@@ -4,6 +4,7 @@ using UnityEngine;
 public class B_Canvas : MonoBehaviour
 {
     public static B_Canvas instance = null;
+    public Transform Coin;
 
     private void Awake()
     {

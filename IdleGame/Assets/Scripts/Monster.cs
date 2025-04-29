@@ -82,18 +82,27 @@ public class Monster : Unit
         
         if(HP <= 0)
         {
-            var eff = Resources.Load<GameObject>(effect.name);
+            //var eff = Resources.Load<GameObject>(effect.name);
             //등록한 이펙트의 이름으로 로드한다.
-            Instantiate(eff, transform.position, Quaternion.identity);
+            //Instantiate(eff, transform.position, Quaternion.identity);
             //로드한 값을 생성한다.
 
             //이펙트를 몬스터의 좌표 위치로 생성
-            //var effect = Manager.Pool.pooling("Effect01").get(
-            //    (value) =>
-            //    {
-            //        value.transform.position = new Vector3(transform.position.x,
-            //            transform.position.y, transform.position.z);
-            //    });
+            var effect = Manager.Pool.pooling("Effect01").get(
+                (value) =>
+                {
+                    value.transform.position = new Vector3(transform.position.x,
+                        transform.position.y, transform.position.z);
+                });
+
+            //코인 드랍 기능 추가
+            Manager.Pool.pooling("Coin_Move").get(value => 
+            {
+                value.GetComponent<CoinMove>().Init(transform.position);
+            
+            });
+
+
         }
     }
 

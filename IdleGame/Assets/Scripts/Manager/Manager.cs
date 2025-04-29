@@ -44,5 +44,6 @@ public class Manager : MonoBehaviour
     //го...
     public GameObject ResourceInstantiate(string path) => Instantiate(Resources.Load<GameObject>(path));
 
+   
 }
 
