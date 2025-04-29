@@ -57,7 +57,7 @@ public class Spawner : MonoBehaviour
             //기존 형태를 그대로 생성하는 경우에 사용하는 값
 
             //반납
-           StartCoroutine(CRelease(go));
+           //StartCoroutine(CRelease(go));
         }
 
         //yield return : 일정 시점 후 다시 돌아오는 코드
