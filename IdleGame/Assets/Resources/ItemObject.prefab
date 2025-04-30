@@ -9581,6 +9581,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc3058509e0766b4bb6cb7051e26814c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ItemText: {fileID: 9148147340580221818}
+  text: {fileID: 2389187197584327710}
   angle: 45
   gravity: 9.8
   range: 2

@@ -545,7 +545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   count: 1
-  spawnTime: 60
+  spawnTime: 200
 --- !u!1 &689048755
 GameObject:
   m_ObjectHideFlags: 0
