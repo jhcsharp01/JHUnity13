@@ -53,8 +53,6 @@ public class Spawner : MonoBehaviour
                 value.transform.position = pos;
                 value.transform.LookAt(Vector3.zero);
                 monster_list.Add(value.GetComponent<Monster>());
-                //var go = value.GetComponent<Monster>();
-                //monster_list.Add(go);
             });
             //Quaternion.identity : 회전 값 0
             //기존 형태를 그대로 생성하는 경우에 사용하는 값
