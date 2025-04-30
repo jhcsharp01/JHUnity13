@@ -29,13 +29,14 @@ public class CoinMove : MonoBehaviour
         for (int i = 0; i < rects.Length; i++)
         {
             rects[i].anchoredPosition = Vector2.zero;
+  
             //UI 개발의 필수
             //Vector2 anchoredPosition
             //패널의 앵커로부터의 위치를 나타냅니다.
             // --> 인스펙터 상에서 보이는 posX, posY의 위치
         }
         //캔버스 쪽으로 트랜스폼 연결
-        transform.parent = B_Canvas.instance.transform;
+        transform.parent = B_Canvas.instance.GetLayer(0);
 
         //코루틴 작동
         StartCoroutine(Move());

@@ -7,8 +7,8 @@ public class B_Canvas : MonoBehaviour
     public Transform Coin;   //Coin 등록
     public Transform Layers; //Layers 등록
     //#Layer 1 : 생성되는 코인이 들어가는 위치   ---> CoinMove.cs
-    //#Layer 2 : 생성될 아이템이 들어가는 위치   ---> Item_Object.cs
-    //#Layer 3 : 미정
+    //#Layer 2 : 데미지 텍스트 출력하는 위치     ----> HitText.cs
+    //#Layer 3 : 생성될 아이템이 들어가는 위치   ---> Item_Object.cs
 
     private void Awake()
     {

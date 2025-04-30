@@ -17,21 +17,19 @@ public class Item_Object : MonoBehaviour
     void ItemRare()
     {
         ischeck = true;
+        transform.rotation = Quaternion.identity; //그대로 값 넘어가도록 회전 값 0
         //아이템 텍스트 활성화
         ItemText.gameObject.SetActive(true);
+        ItemText.parent = B_Canvas.instance.GetLayer(2);
         text.text = "아이템"; //아이템 이름 설정
     }
-
     private void Update()
     {
         if (ischeck == false)
             return;
 
         ItemText.position = Camera.main.WorldToScreenPoint(transform.position);
-
     }
-
-
     public void Init(Vector3 pos)
     {
         //전달받은 값을 기준으로 그 주변에 위치할 수 있도록 범위 설정
