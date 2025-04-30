@@ -63,9 +63,6 @@ public class Monster : Unit
 
     public GameObject effect; //이펙트 연결
 
-
-
-
     public void GetDamage(double dmg)
     {
         //죽었다면 이 작업이 호출되지 않게 합니다.
@@ -94,15 +91,25 @@ public class Monster : Unit
                     value.transform.position = new Vector3(transform.position.x,
                         transform.position.y, transform.position.z);
                 });
-
             //코인 드랍 기능 추가
             Manager.Pool.pooling("Coin_Move").get(value => 
             {
                 value.GetComponent<CoinMove>().Init(transform.position);
             
             });
+            //아이템 드랍 기능 추가
+            //현재 아이템 테이블이 따로 구현이 안되있기 때문에 고정 값 설정
+            //변수를 만들어서 편하게 수정하시거나, 이후에 아이템 관련 데이터 추가해서 그 값만큼 처리하게 수정
+            for(int i = 0; i < 4; i++)
+            {
+                Manager.Pool.pooling("ItemObject").get((value) =>
+                {
+                    value.GetComponent<Item_Object>().Init(transform.position);
 
-
+                });
+            }
+            //몬스터 반납
+            Manager.Pool.pool_dict["Monster"].Release(gameObject);
         }
     }
 
