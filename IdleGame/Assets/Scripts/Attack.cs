@@ -11,6 +11,8 @@ public class Attack : MonoBehaviour
     public Vector3 target_pos;
     double damage;
     public string attack_key;
+    public bool hit = false;
+
 
     //공격 시 생성될 오브젝트
     Dictionary<string, GameObject> attacks = new Dictionary<string, GameObject>();
@@ -43,6 +45,9 @@ public class Attack : MonoBehaviour
         target = t;
         transform.LookAt(target);
 
+        //히트 처리 false
+        hit = false;
+
         //전달받은 값으로 데미지 설정
         damage = dmg;
 
@@ -55,6 +60,11 @@ public class Attack : MonoBehaviour
     }
     private void Update()
     {
+        //hit가 활성화된 상태라면 return해서 hit에 대한 처리가 다 끝난 뒤, 새롭게 hit가 false가 되면 작동할 수 있게 설정합니다.
+        if (hit) return;
+
+        target_pos.y = 1.0f; //현재 위치하고 있는 타겟의 위치와 y축 길이를 맞춰주기
+
         //공격 위치가 타겟 지점으로 이동하도록 설정
         transform.position = Vector3.MoveTowards(transform.position, target_pos, move_speed * Time.deltaTime);
 
@@ -64,6 +74,9 @@ public class Attack : MonoBehaviour
             //타겟 지정 후
             if (target != null)
             {
+                //히트 true
+                hit = true;
+
                 //유닛이 가진 체력을 데미지만큼 감소합니다.
                 target.GetComponent<Unit>().HP -= damage;
                 //감소하면 플레이어나 몬스터가 데미지 처리하는 함수가 처리되도록 설정해줄 필요가 있습니다.

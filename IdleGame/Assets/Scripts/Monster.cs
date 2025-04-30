@@ -133,10 +133,10 @@ public class Monster : Unit
         }
 
         //공격 테스트
-        if(Input.GetKeyDown(KeyCode.A))
-        {
-            GetDamage(1);
-        }
+        //if(Input.GetKeyDown(KeyCode.A))
+        //{
+        //    GetDamage(1);
+        //}
 
         #region 필기
         //1. transform.position : 현재 오브젝트의 위치를 나타냅니다.

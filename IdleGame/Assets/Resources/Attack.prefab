@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 881418928701006180}
   - component: {fileID: 3105193059579728614}
   m_Layer: 0
-  m_Name: OnAttack01
+  m_Name: ATK01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4932,7 +4932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9205bc1bbacc90040a998067b5643d16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clearBehavior: 2
+  clearBehavior: 0
   cameraShake:
     enabled: 1
     useMainCamera: 1
@@ -5118,7 +5118,7 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.8091389, g: 0.41037738, b: 1, a: 1}
-  m_Intensity: 0
+  m_Intensity: 1.5380278
   m_Range: 8
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -10001,9 +10001,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  move_speed: 0
+  move_speed: 3
   target_pos: {x: 0, y: 0, z: 0}
   attack_key: 
+  hit: 0
 --- !u!1 &1876562344356986264
 GameObject:
   m_ObjectHideFlags: 0
@@ -19896,12 +19897,12 @@ GameObject:
   - component: {fileID: 1639286064911262271}
   - component: {fileID: 7918596108834771700}
   m_Layer: 0
-  m_Name: Attack01
+  m_Name: ATK01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7195312312881115277
 Transform:
   m_ObjectHideFlags: 0
@@ -24622,7 +24623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9205bc1bbacc90040a998067b5643d16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clearBehavior: 2
+  clearBehavior: 0
   cameraShake:
     enabled: 0
     useMainCamera: 1

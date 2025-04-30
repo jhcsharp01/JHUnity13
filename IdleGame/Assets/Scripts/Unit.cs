@@ -35,7 +35,7 @@ public class Unit : MonoBehaviour
         {
             value.transform.position = attack_transform.position;
             //일반적으로 무기의 맨 앞 부분쪽을 위치로 잡습니다.
-            value.GetComponent<Attack>().Init(target, 1, "OnAttack01");
+            value.GetComponent<Attack>().Init(target, 1, "ATK01");
         });
     }
 
